@@ -13,6 +13,7 @@ namespace Aristo_lesson
             Pupil pupil1 = new Pupil("Иван", "Иванов","9А");
             Pupil pupil2 = new Pupil("Макар", "Макаров", "9А");
             Pupil pupil3 = new Pupil("Петр", "Петров", "9А");
+            Pupil pupil4 = new Pupil("Василий", "Петров", "9А");
 
             Console.WriteLine("Выберите ученика");
             Console.WriteLine("1)" + pupil1.Name + " " + pupil1.Surname);

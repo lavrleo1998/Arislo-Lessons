@@ -23,20 +23,20 @@ namespace Igra
         int hpplayer;
         int maplayer;
         int saplayer;
-        Boolean cristal = true;
+        Boolean cristal = false;
         private void DarkORgood()
         {
             if (cristal == true)
             {
-                // Bar.Image = System.Drawing.Image.FromFile("‪C:\\Users\\Дом\\Documents\\GitHub\\Arislo-Lessons\\Igra\\Igra\\images\\darkBar.bmp");
-                //  Map.BackgroundImage = System.Drawing.Image.FromFile("‪C: \\Users\\Дом\\Documents\\GitHub\\Arislo - Lessons\\Igra\\Igra\\images\\darkMap.bmp");
-                Bar.Load("‪C:\\darkBar.bmp"); 
+                Bar.Image = System.Drawing.Image.FromFile(@"‪C:\\Users\\Дом\\Documents\\GitHub\\Arislo-Lessons\\Igra\\Igra\\images\\darkBar.bmp");
+                 Map.BackgroundImage = System.Drawing.Image.FromFile(@"‪C: \\Users\\Дом\\Documents\\GitHub\\Arislo - Lessons\\Igra\\Igra\\images\\darkMap.bmp");
+               // Bar.Load("‪C:\\darkBar.bmp"); 
 
             }
             if (cristal == false)
             {
-                Bar.Image = System.Drawing.Image.FromFile("‪C: \\Users\\Дом\\Documents\\GitHub\\Arislo - Lessons\\Igra\\Igra\\images\\goodBar.bmp");
-                Map.BackgroundImage = System.Drawing.Image.FromFile("‪C: \\Users\\Дом\\Documents\\GitHub\\Arislo - Lessons\\Igra\\Igra\\images\\goodMap.bmp");
+                Bar.Image = System.Drawing.Image.FromFile(@"‪C: \\Users\\Дом\\Documents\\GitHub\\Arislo - Lessons\\Igra\\Igra\\images\\goodBar.bmp");
+                Map.BackgroundImage = System.Drawing.Image.FromFile(@"‪C: \\Users\\Дом\\Documents\\GitHub\\Arislo - Lessons\\Igra\\Igra\\images\\goodMap.bmp");
             }
         }
         private void Show()
@@ -98,6 +98,16 @@ namespace Igra
             BarInside.Visible = true;
             Map.Enabled = false;
             BarInside.Enabled = true;
+        }
+        //Battle
+        private void Battlefield(string n,int mxhp, int hp, int dg)
+        {
+            Battle.Visible = true;
+            Battle.Enabled = true;
+            Map.Visible = false;
+            Map.Enabled = false;
+            BarNameEnemy.Text = n;
+
         }
     }
 }

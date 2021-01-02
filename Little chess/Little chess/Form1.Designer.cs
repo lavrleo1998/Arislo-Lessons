@@ -44,9 +44,14 @@
             this.Cube2 = new System.Windows.Forms.Button();
             this.Cube1 = new System.Windows.Forms.Button();
             this.Cube0 = new System.Windows.Forms.Button();
+            this.MenuOfRobot = new System.Windows.Forms.Panel();
+            this.oneused = new System.Windows.Forms.Label();
+            this.Geniy = new System.Windows.Forms.Button();
+            this.Dyrachok = new System.Windows.Forms.Button();
             this.Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureOfMenu)).BeginInit();
             this.Game.SuspendLayout();
+            this.MenuOfRobot.SuspendLayout();
             this.SuspendLayout();
             // 
             // Menu
@@ -67,7 +72,6 @@
             this.ButtonWithComputer.BackColor = System.Drawing.SystemColors.Control;
             this.ButtonWithComputer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonWithComputer.BackgroundImage")));
             this.ButtonWithComputer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonWithComputer.Enabled = false;
             this.ButtonWithComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ButtonWithComputer.Location = new System.Drawing.Point(277, 250);
             this.ButtonWithComputer.Name = "ButtonWithComputer";
@@ -75,7 +79,7 @@
             this.ButtonWithComputer.TabIndex = 2;
             this.ButtonWithComputer.Text = "Играть с ботом";
             this.ButtonWithComputer.UseVisualStyleBackColor = false;
-            this.ButtonWithComputer.Visible = false;
+            this.ButtonWithComputer.Click += new System.EventHandler(this.ButtonWithComputer_Click);
             // 
             // ButtonWithFriend
             // 
@@ -83,7 +87,7 @@
             this.ButtonWithFriend.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonWithFriend.BackgroundImage")));
             this.ButtonWithFriend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ButtonWithFriend.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonWithFriend.Location = new System.Drawing.Point(177, 250);
+            this.ButtonWithFriend.Location = new System.Drawing.Point(77, 250);
             this.ButtonWithFriend.Name = "ButtonWithFriend";
             this.ButtonWithFriend.Size = new System.Drawing.Size(150, 150);
             this.ButtonWithFriend.TabIndex = 1;
@@ -245,18 +249,72 @@
             this.Cube0.UseVisualStyleBackColor = true;
             this.Cube0.Click += new System.EventHandler(this.Cube0_Click);
             // 
+            // MenuOfRobot
+            // 
+            this.MenuOfRobot.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MenuOfRobot.BackgroundImage")));
+            this.MenuOfRobot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.MenuOfRobot.Controls.Add(this.oneused);
+            this.MenuOfRobot.Controls.Add(this.Geniy);
+            this.MenuOfRobot.Controls.Add(this.Dyrachok);
+            this.MenuOfRobot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MenuOfRobot.Enabled = false;
+            this.MenuOfRobot.Location = new System.Drawing.Point(0, 0);
+            this.MenuOfRobot.Name = "MenuOfRobot";
+            this.MenuOfRobot.Size = new System.Drawing.Size(504, 504);
+            this.MenuOfRobot.TabIndex = 0;
+            this.MenuOfRobot.Visible = false;
+            // 
+            // oneused
+            // 
+            this.oneused.BackColor = System.Drawing.Color.DodgerBlue;
+            this.oneused.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.oneused.Location = new System.Drawing.Point(77, 87);
+            this.oneused.Name = "oneused";
+            this.oneused.Size = new System.Drawing.Size(346, 150);
+            this.oneused.TabIndex = 2;
+            this.oneused.Text = "Выбери уровень бота.";
+            this.oneused.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Geniy
+            // 
+            this.Geniy.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Geniy.BackgroundImage")));
+            this.Geniy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Geniy.Enabled = false;
+            this.Geniy.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Geniy.Location = new System.Drawing.Point(277, 250);
+            this.Geniy.Name = "Geniy";
+            this.Geniy.Size = new System.Drawing.Size(150, 150);
+            this.Geniy.TabIndex = 1;
+            this.Geniy.Text = "Гений";
+            this.Geniy.UseVisualStyleBackColor = true;
+            // 
+            // Dyrachok
+            // 
+            this.Dyrachok.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Dyrachok.BackgroundImage")));
+            this.Dyrachok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Dyrachok.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Dyrachok.Location = new System.Drawing.Point(77, 250);
+            this.Dyrachok.Name = "Dyrachok";
+            this.Dyrachok.Size = new System.Drawing.Size(150, 150);
+            this.Dyrachok.TabIndex = 0;
+            this.Dyrachok.Text = "Дурачок";
+            this.Dyrachok.UseVisualStyleBackColor = true;
+            this.Dyrachok.Click += new System.EventHandler(this.Dyrachok_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 504);
-            this.Controls.Add(this.Game);
             this.Controls.Add(this.Menu);
+            this.Controls.Add(this.MenuOfRobot);
+            this.Controls.Add(this.Game);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Menu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PictureOfMenu)).EndInit();
             this.Game.ResumeLayout(false);
+            this.MenuOfRobot.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -278,6 +336,10 @@
         private System.Windows.Forms.Button Cube2;
         private System.Windows.Forms.Button Cube1;
         private System.Windows.Forms.Label TextLabel;
+        private System.Windows.Forms.Panel MenuOfRobot;
+        private System.Windows.Forms.Button Dyrachok;
+        private System.Windows.Forms.Button Geniy;
+        private System.Windows.Forms.Label oneused;
     }
 }
 

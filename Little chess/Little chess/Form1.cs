@@ -12,7 +12,9 @@ namespace Little_chess
 {
     public partial class Form1 : Form
     {
-
+        bool notrobot=false;
+        bool mind;
+        bool roboton = false;
         bool who = true;
         int[] status = new int[9] {1,1,1,1,1,1,1,1,1 };// 7-X, 0-O, 1-_
         List<Button> buttons = new List<Button>();
@@ -30,6 +32,34 @@ namespace Little_chess
             buttons.Add(Cube8);
 
         }
+        //Бот
+        private void Robot()
+        {
+            if (roboton == true)
+            {
+                if (mind == false)
+                {
+                    bool good=false;
+                    int dyrak=10;
+                    Random Dyrak = new Random();
+                    while ( good == false)
+                    {
+                        dyrak = Dyrak.Next(0, 9);
+                        if (buttons[dyrak].Enabled == true) good = true;
+                    }
+                    if (good == true && notrobot == false) 
+                    {
+                        notrobot = true;
+                        Step(dyrak);
+                    }
+                }
+                if (mind == true)
+                {
+
+                }
+            }
+        }
+        //Бот
         private void Forbuttons(bool a)
         {
             for (int i = 0; i < 9; i++)
@@ -56,6 +86,8 @@ namespace Little_chess
             buttons[kto].Enabled = false;            
             who = !who;
             Finish();
+            Robot();
+            notrobot = false;
         }
         private void Finish()
         {
@@ -201,12 +233,13 @@ namespace Little_chess
                 buttons[a].BackgroundImage = Image.FromFile(gde);
                 buttons[b].BackgroundImage = Image.FromFile(gde);
                 buttons[c].BackgroundImage = Image.FromFile(gde);
-                TextLabel.Text = "Победил "+what+".";
+                TextLabel.Text = "Победил "+what+ ". В меню";
                 TextLabel.Visible = true;
                 TextLabel.Enabled = true;
-                for (int i = 0; i < 9; i++)
-                    Forbuttons(false);
-            }
+                roboton = false;
+                //for (int i = 0; i < 9; i++)
+                Forbuttons(false);
+                }
             else
             {
                 int schet=0;
@@ -217,9 +250,11 @@ namespace Little_chess
                 if (schet == 9)
                 {
                     Forbuttons(false);
-                    TextLabel.Text = "Ничья ";
+                    TextLabel.Text = "Ничья. " +
+                        "В меню.";
                     TextLabel.Visible = true;
                     TextLabel.Enabled = true;
+                    roboton = false;
                 }
             }
         }
@@ -233,18 +268,20 @@ namespace Little_chess
             Forbuttons(true);
             TextLabel.Enabled = false;
             TextLabel.Visible = false;
+            roboton = false;
         }
-        private void Rokirovka(bool a)//Панель работающая в данный момент
+        private void Rokirovka(bool a,bool b,bool c)// Game,Menu,MenuOfRobot
         {
-            bool b = !a;
-            Menu.Visible = a;
-            Menu.Enabled = a;
-            Game.Visible = b;
-            Game.Enabled = b;
-        }
+            Game.Enabled = a;
+            Game.Visible = a;
+            Menu.Enabled = b;
+            Menu.Visible = b;
+            MenuOfRobot.Enabled = c;
+            MenuOfRobot.Visible = c;
+        }//Панель работающая в данный момент]
         private void ButtonWithFriend_Click(object sender, EventArgs e)
         {
-            Rokirovka(false);
+            Rokirovka(true,false,false);
         }
         //Кнопки
         private void Cube0_Click(object sender, EventArgs e)
@@ -285,8 +322,19 @@ namespace Little_chess
         }
         private void TextLabel_Click(object sender, EventArgs e)
         {
-            Rokirovka(true);
+            Rokirovka(false,true,false);
             Sbros();
+        }
+        private void Dyrachok_Click(object sender, EventArgs e)
+        {
+            Rokirovka(true,false,false);
+            roboton = true;
+            mind = false;
+            Robot();
+        }
+        private void ButtonWithComputer_Click(object sender, EventArgs e)
+        {
+            Rokirovka(false,false,true);
         }
         //Конец кнопок
     }
